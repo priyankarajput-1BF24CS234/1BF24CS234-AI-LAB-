@@ -1,7 +1,9 @@
 
 def dls(graph, node, goal, depth, path):
+    print(node, end=" ")  # Show each node visited
+
     if node == goal:
-        print("Path:", " -> ".join(path))
+        print("\nPath:", " -> ".join(path))
         return True
 
     if depth == 0:
@@ -17,13 +19,14 @@ def dls(graph, node, goal, depth, path):
 
 def ids(graph, start, goal, max_depth):
     for depth in range(max_depth + 1):
-        print("Searching at depth:", depth)
+        print("\nSearching at depth", depth)
+        print("Traversal:", end=" ")
 
         if dls(graph, start, goal, depth, [start]):
-            print("Goal found at depth", depth)
+            print("\nGoal found at depth", depth)
             return
 
-    print("Goal not found")
+    print("\nGoal not found")
 
 
 graph = {}
